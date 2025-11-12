@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c23",
+            "intelliSenseMode": "linux-gcc-x64",
+            "cppStandard": "c++23",
+            "compilerArgs": [
+                "-O2",
+                "-Wall",
+                "-Wextra",
+                "-Wshadow",
+                "-Wconversion",
+                "-Wfloat-equal",
+                "-Wduplicated-cond",
+                "-Wlogical-op"
+            ]
+        }
+    ],
+    "version": 4
+}
