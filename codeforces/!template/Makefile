@@ -1,5 +1,5 @@
 CXX := g++
-CXXFLAGS := -std=c++20 -O2 -pipe -static -s -Wall -Wextra
+CXXFLAGS := -O2 -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal -Wduplicated-cond -Wlogical-op
 TARGET := main
 SRC := main.cpp
 
