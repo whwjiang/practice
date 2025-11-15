@@ -5,10 +5,10 @@ using ll = long long;
 using ui = unsigned int;
 
 void solve() {
-  ifstream read(".in");
+  ifstream read("teamwork.in");
 
   int ans;
-  ofstream(".out") << ans << endl;
+  ofstream("teamwork.out") << ans << endl;
 }
 
 int main() {
