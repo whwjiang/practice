@@ -11,7 +11,7 @@ build:
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
 
 test: build
-	./test.sh
+	$(ROOT)/test.sh
 
 clean:
 	rm -f $(TARGET) tests/*.out.tmp

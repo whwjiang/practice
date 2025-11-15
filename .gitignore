@@ -1,3 +1,5 @@
 .vscode
 tests/**
 **/tests/**
+!tests/.gitkeep
+!**/tests/.gitkeep
