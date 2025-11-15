@@ -5,12 +5,13 @@ using ll = long long;
 using ui = unsigned int;
 
 void solve() {
-  string s;
-  cin >> s;
+  ifstream read(".in");
+
+  int ans;
+  ofstream(".out") << ans << endl;
 }
 
 int main() {
   ios::sync_with_stdio(false);
-  cin.tie(nullptr);
   solve();
 }
