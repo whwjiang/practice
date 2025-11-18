@@ -10,10 +10,7 @@ public:
     tree.resize(4 * n);
     build(vals, 1, 0, n - 1);
   }
-  SegmentTree(size_t n_vals) : n(n_vals) {
-    // allocate full tree size so recursive updates stay in-bounds
-    tree = vector<T>(4 * n, DEFAULT);
-  }
+  SegmentTree(size_t n_vals) : n(n_vals) { tree = vector<T>(4 * n, DEFAULT); }
   void update(size_t index, T val) { return update(index, val, 1, 0, n - 1); }
   T query(size_t start, size_t end) { return query(start, end, 1, 0, n - 1); }
 
@@ -94,10 +91,6 @@ void solve() {
     }
     s.push_back(i);
   }
-  // for (int i = 0; i < n; ++i) {
-  //   printf("pgi[%d] = %d\n", i, pgi[i]);
-  //   printf("ngi[%d] = %d\n", i, ngi[i]);
-  // }
   SegmentTree<int> st(n);
   size_t j = 0;
   vector<int> dp(n, 0);
