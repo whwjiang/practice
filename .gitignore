@@ -4,3 +4,5 @@ tests/**
 !tests/.gitkeep
 !**/tests/.gitkeep
 **/main
+*.in
+*.out
