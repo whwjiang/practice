@@ -25,3 +25,13 @@ fi
 
 cp -R "$src_dir" "$dst_dir"
 echo "Created $dst_dir from $src_dir"
+
+if [[ "$group" == "usaco" ]]; then
+    target_main="$dst_dir/main.cpp"
+    if [[ -f "$target_main" ]]; then
+        sed -i "s/xxx/$name/g" "$target_main"
+        echo "Updated template placeholders in $target_main"
+    else
+        echo "Warning: Expected file not found: $target_main" >&2
+    fi
+fi

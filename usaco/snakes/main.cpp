@@ -5,10 +5,12 @@ using ll = long long;
 using ui = unsigned int;
 
 void solve() {
-  ifstream read("xxx.in");
+  ifstream read("snakes.in");
+
+  
 
   int ans;
-  ofstream("xxx.out") << ans << endl;
+  ofstream("snakes.out") << ans << endl;
 }
 
 int main() {
