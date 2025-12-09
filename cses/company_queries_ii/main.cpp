@@ -8,13 +8,13 @@ void solve() {
   int n, Q;
   cin >> n >> Q;
   int L = 32 - __builtin_clz(n);
-  vector<vector<int>> up(n, vector<int>(L, -1));
   vector<int> depth(n, 0);
+  vector<vector<int>> up(n, vector<int>(L, -1));
   for (int i = 1; i < n; ++i) {
-    int parent;
-    cin >> parent;
-    up[i][0] = --parent;
-    depth[i] = depth[parent] + 1;
+    int p;
+    cin >> p;
+    up[i][0] = --p;
+    depth[i] = 1 + depth[p];
   }
   for (int p = 1; p < L; ++p) {
     for (int i = 0; i < n; ++i) {
@@ -23,9 +23,12 @@ void solve() {
       }
     }
   }
+
   auto lift = [&](int node, int k) {
     for (int p = 0; p < L; ++p) {
-      if (node != -1 && ((k >> p) & 1)) {
+      if (node == -1) {
+        break;
+      } else if ((k >> p) & 1) {
         node = up[node][p];
       }
     }
@@ -37,9 +40,9 @@ void solve() {
     if (a == b) {
       return a;
     }
-    for (int l = L - 1; l >= 0; --l) {
-      if (up[a][l] != up[b][l]) {
-        a = up[a][l], b = up[b][l];
+    for (int p = L - 1; p >= 0; --p) {
+      if (up[a][p] != up[b][p]) {
+        a = up[a][p], b = up[b][p];
       }
     }
     return up[a][0];
@@ -47,7 +50,7 @@ void solve() {
   for (int q = 0; q < Q; ++q) {
     int a, b;
     cin >> a >> b;
-    cout << lca(--a, --b) + 1 << endl;
+    cout << lca(--a, --b) + 1<< endl;
   }
 }
 

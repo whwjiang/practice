@@ -8,7 +8,7 @@ void solve() {
   int n, Q;
   cin >> n >> Q;
   int L = 32 - __builtin_clz(n);
-  vector<vector<int>> up(n + 1, vector<int>(L, -1));
+  vector<vector<int>> up(n, vector<int>(L, -1));
   for (int i = 1; i < n; ++i) {
     int parent;
     cin >> parent;
@@ -23,18 +23,20 @@ void solve() {
   }
   auto lift = [&](int node, int k) {
     for (int p = 0; p < L; ++p) {
-      if (node != -1 && ((k >> p) & 1)) {
+      if (node == -1) {
+        break;
+      }
+      if ((k >> p) & 1) {
         node = up[node][p];
       }
     }
     return node;
   };
   for (int q = 0; q < Q; ++q) {
-    int node, k;
-    cin >> node >> k;
-    node--;
-    int res = lift(node, k);
-    cout << ((res == -1) ? -1 : res + 1) << endl;
+    int x, k;
+    cin >> x >> k;
+    int res = lift(--x, k);
+    cout << (res == -1 ? -1 : ++res) << endl;
   }
 }
 
