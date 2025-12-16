@@ -1,5 +1,7 @@
-CXX := g++
-CXXFLAGS := -std=c++20 -O2 -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal -Wduplicated-cond -Wlogical-op
+CXX ?= g++
+CXXSTD ?= c++20
+CXXWARN ?= -O2 -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal -Wduplicated-cond -Wlogical-op
+CXXFLAGS := -std=$(CXXSTD) $(CXXWARN)
 TARGET := main
 SRC := main.cpp
 

@@ -5,10 +5,8 @@ using ll = long long;
 using ui = unsigned int;
 
 void solve() {
-  ifstream read("xxx.in");
-
-  int ans;
-  ofstream("xxx.out") << ans << endl;
+  freopen("xxx.in", "r", stdin);
+  freopen("xxx.out", "w", stdout);
 }
 
 int main() {
