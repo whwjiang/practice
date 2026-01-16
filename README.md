@@ -8,6 +8,7 @@ Use the prepare script to generate boilerplate for problems from various online 
 - CSES
 - USACO
 - IOI
+- NOI
 
 This represents a majority of problems discussed in usaco.guide, so I haven't expanded it to any other online judges.
 
