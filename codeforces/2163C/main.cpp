@@ -1,5 +1,5 @@
-#include <bits/stdc++.h>
 #include <bits/basic_string.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 /*
@@ -10,12 +10,12 @@ The problem solving process required you to make two important observations:
    find the first r that allows us to find a down-right path
 2. Increasing l to l + 1 only decreases the number of activated cells,
    so when we increase l, we do not have to decrease r to find more solutions
-  
-Then, in order to determine whether a down-right path exists, we find the first
-index in the top row with a 0, and then the last index in the bottom row with a 0.
-Call them a and b respectively. If a - 1 > b, then there must be a path
 
-E.g.: 
+Then, in order to determine whether a down-right path exists, we find the first
+index in the top row with a 0, and then the last index in the bottom row with a
+0. Call them a and b respectively. If a - 1 > b, then there must be a path
+
+E.g.:
 1 1 0 0 0 -> a = 2
 0 0 1 1 1 -> b = 1, a - 1 = b -> no path
 
@@ -73,7 +73,6 @@ void solve() {
     }
     return true;
   };
-
 
   int ans = 0;
   int r = 0;
