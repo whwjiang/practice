@@ -26,6 +26,20 @@ fi
 cp -R "$src_dir" "$dst_dir"
 echo "Created $dst_dir from $src_dir"
 
+if [[ "$group" == "codeforces" ]]; then
+    target_main="$dst_dir/main.cpp"
+    if [[ -f "$target_main" ]]; then
+        for letter in a b c d e f g; do
+            cp "$target_main" "$dst_dir/${letter}.cpp"
+            mkdir -p "$dst_dir/tests/${letter}"
+        done
+        rm -f "$target_main"
+        echo "Generated a.cpp to g.cpp and tests/{a..g} in $dst_dir"
+    else
+        echo "Warning: Expected file not found: $target_main" >&2
+    fi
+fi
+
 if [[ "$group" == "usaco" ]]; then
     target_main="$dst_dir/main.cpp"
     if [[ -f "$target_main" ]]; then

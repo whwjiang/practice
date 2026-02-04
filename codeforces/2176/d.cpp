@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int long long
+using ll = long long;
 /*
 Problem Link:
 Key Insight:
@@ -15,7 +15,7 @@ void solve() {
   cin >> n;
 }
 
-signed main() {
+int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
   int t = 1;
