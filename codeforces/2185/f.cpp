@@ -29,18 +29,17 @@ struct Node {
   int above{0};
 };
 
-Node combine(const Node &l, const Node &r) {
-  Node res(l.sum ^ r.sum);
+void combine(const Node &l, const Node &r, Node &out) {
+  out.sum = l.sum ^ r.sum;
   const Node &win = (l.sum >= r.sum) ? l : r;
   const Node &lose = (l.sum >= r.sum) ? r : l;
   if (win.has_potion) {
-    res.above = win.above;
+    out.above = win.above;
   } else if (lose.has_potion) {
-    res.above = lose.above + win.elements;
+    out.above = lose.above + win.elements;
   }
-  res.elements = l.elements + r.elements;
-  res.has_potion = l.has_potion || r.has_potion;
-  return res;
+  out.elements = l.elements + r.elements;
+  out.has_potion = l.has_potion || r.has_potion;
 }
 
 class SegmentTree {
@@ -67,7 +66,7 @@ private:
     int m = (l + r) / 2;
     init(a, at << 1, l, m);
     init(a, at << 1 | 1, m + 1, r);
-    st[at] = combine(st[at << 1], st[at << 1 | 1]);
+    combine(st[at << 1], st[at << 1 | 1], st[at]);
   }
 
   void update(int idx, int val, bool potion, int at, int l, int r) {
@@ -83,7 +82,7 @@ private:
     } else {
       update(idx, val, potion, at << 1 | 1, m + 1, r);
     }
-    st[at] = combine(st[at << 1], st[at << 1 | 1]);
+    combine(st[at << 1], st[at << 1 | 1], st[at]);
   }
 
   int query(int start, int end, int at, int l, int r) {
